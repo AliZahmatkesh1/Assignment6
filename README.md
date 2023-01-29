@@ -1,2 +1,0 @@
-# Assignment6
-TicTacToe
