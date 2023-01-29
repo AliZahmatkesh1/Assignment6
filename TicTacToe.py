@@ -28,34 +28,36 @@ def show() :
 
 #chek X $ O
 def chek (a,c) :
-    if a == 1 :
-        a , b = 0 , 0
-    elif a == 2 :
-        a , b = 0 , 1
-    elif a == 3 :
-        a , b = 0 , 2
-    elif a == 4 :
-        a , b = 1 , 0
-    elif a == 5 :
-        a , b = 1 , 1
-    elif a == 6 :
-        a , b = 1 , 2
-    elif a == 7 :
-        a , b = 2 , 0
-    elif a == 8 :
-        a , b = 2 , 1
-    elif a == 9 :
-        a , b = 2 , 2
-    
-    if list[a][b] == "-" :
-        if c == 1 :
-            list[a][b] = "X"
-            return True
-        elif c == 2 :
-            list[a][b] = "O"
-            return True
+    if a > 0 and a < 10 :
+        if a == 1 :
+            a , b = 0 , 0
+        elif a == 2 :
+            a , b = 0 , 1
+        elif a == 3 :
+            a , b = 0 , 2
+        elif a == 4 :
+            a , b = 1 , 0
+        elif a == 5 :
+            a , b = 1 , 1
+        elif a == 6 :
+            a , b = 1 , 2
+        elif a == 7 :
+            a , b = 2 , 0
+        elif a == 8 :
+            a , b = 2 , 1
+        elif a == 9 :
+            a , b = 2 , 2
+        if list[a][b] == "-" :
+            if c == 1 :
+                list[a][b] = "X"
+                return True
+            elif c == 2 :
+                list[a][b] = "O"
+                return True
+        else :
+            return False
     else :
-        return False
+        return "n"
 
 
 #chek 3 line
@@ -94,9 +96,10 @@ def player1 () :
 
     print (Fore.BLUE+"player 1", Fore.RESET)
     p1 = int(input("Enter namber : "))
-
-    if chek(p1 , 1) :
-        if chek_doz() == True :
+    
+    
+    if chek(p1 , 1) == True:
+        if chek_doz() == True:
             print("\n")
             print(Style.BRIGHT+Back.BLUE+Fore.WHITE+"========barande========"+Style.RESET_ALL +Back.RESET+ Fore.RESET)
             print("\n")
@@ -110,8 +113,11 @@ def player1 () :
             show()
             return True
         show()
+    elif chek(p1 , 1) == "n":
+        print (Fore.YELLOW+"\nadad bayad beyne 1 ta 9 bashad .\ndobare !\n", Fore.RESET)
+        player1()
 
-    else :
+    else:
         print (Fore.YELLOW+"\nIn khone ghablan entekhab shode.\ndobare !\n", Fore.RESET)
         player1()
 
@@ -122,7 +128,7 @@ def player2 () :
     print (Fore.RED+"player 2", Fore.RESET)
     p1 = int(input("Enter namber : "))
 
-    if chek(p1 , 2) :
+    if chek(p1 , 2) == True :
         if chek_doz() == True :
             print("\n")
             print(Style.BRIGHT+Back.RED+Fore.WHITE+"========barande========"+Style.RESET_ALL +Back.RESET+ Fore.RESET)
@@ -137,6 +143,9 @@ def player2 () :
             show()
             return True
         show()
+    elif chek(p1 , 1) == "n":
+        print (Fore.YELLOW+"\nadad bayad beyne 1 ta 9 bashad .\ndobare !\n", Fore.RESET)
+        player2()
 
     else :
         print (Fore.YELLOW+"\nIn khone ghablan entekhab shode.\ndobare !\n", Fore.RESET)
